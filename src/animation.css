@@ -1,0 +1,88 @@
+/* 顶部淡入动画 */
+.fadeInTop {
+  animation: fadeInTop 0.5s;
+  animation-fill-mode: both;
+}
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* 光标闪动动画 */
+.blink {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+/* 向下导航跳动动画 */
+.jump {
+  animation: jump 1.5s infinite;
+}
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-16px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+}
+/* 淡入动画 */
+.fadeIn {
+  animation: fadeIn 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* 左右循环 */
+.loop {
+  animation: loop 1s infinite;
+}
+@keyframes loop {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+/* 3D淡入 */
+.fadeIn3D {
+  animation: fadeIn3D 1s;
+  animation-fill-mode: both;
+}
+@keyframes fadeIn3D {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  50% {
+    opacity: 1;
+  }
+}
