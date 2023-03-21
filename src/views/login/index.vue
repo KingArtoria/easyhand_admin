@@ -5,11 +5,16 @@
       <div class="content_1">
         <!-- 标题 -->
         <div class="content_1_1">管理员登录</div>
+        <!-- 表单 -->
         <el-form :model="loginParams" :rules="loginRules" ref="loginRules">
+          <!-- 单个 -->
           <el-form-item prop="username">
+            <!-- 输入框 -->
             <el-input v-model="loginParams.username" placeholder="请输入用户名" />
           </el-form-item>
+          <!-- 单个 -->
           <el-form-item prop="password">
+            <!-- 输入框 -->
             <el-input v-model="loginParams.password" type="password" placeholder="请输入密码" />
           </el-form-item>
         </el-form>
@@ -21,7 +26,7 @@
 </template>
 
 <script>
-import { login } from '@/utils/api'
+import { login } from '../../utils/api'
 export default {
   data() {
     return {
@@ -44,11 +49,25 @@ export default {
   methods: {
     // 登录
     login() {
+      // 非空校验
       this.$refs.loginRules.validate((valid) => {
+        // 验证通过
         if (valid) {
-          // 登录API
+          // 加载中
+          const loading = this.$loading({
+            lock: true,
+            text: 'Loading',
+            spinner: 'el-icon-loading',
+            background: 'rgba(0, 0, 0, 0.7)'
+          });
+          // 登录接口
           login(this.loginParams).then(res => {
-            console.log(res)
+            // 存储token
+            localStorage.setItem('userInfo', res.data)
+            // 关闭加载
+            loading.close();
+            // 路由跳转
+            this.$router.push({ path: '/index' })
           })
         }
       })

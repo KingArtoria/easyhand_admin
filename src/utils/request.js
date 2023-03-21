@@ -1,7 +1,8 @@
 import axios from 'axios';
 const service = axios.create({
-  baseURL: 'http://fgifast1.vipnps.vip:56396',
-  headers: { 'content-type': 'multipart/form-data; boundary=---011000010111000001101001' },
+  baseURL: 'http://124.222.54.38:8080',
+  timeout: 10000,
+  headers:{"hahah":"xx"}
 });
 service.interceptors.response.use(
   response => response.data,

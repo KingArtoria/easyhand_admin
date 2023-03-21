@@ -1,10 +1,10 @@
 import request from './request';
-import qs from 'qs'
-// ? 登录
-export const login = (data) => {
+import qs from 'querystring'
+// 登录
+export const login = data => {
   return request({
-    url: '/login',
-    method: 'post',
-    data,
+    url: '/sys/user/login',
+    method: 'POST',
+    data: qs.stringify(data),
   });
 }
